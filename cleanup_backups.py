@@ -22,7 +22,8 @@ def cleanup(path):
                 if backup_date <= (now - datetime.timedelta(days=10)) and backup_date.day != last_month_day:
                     os.remove(file)
                     print("Removed: " + file)
-            except Exception:
+            except Exception as error:
+                print(error)
                 continue
     print("Done!")
 
