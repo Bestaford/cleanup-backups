@@ -9,6 +9,7 @@ def main():
     args.pop(0)
     for path in args:
         cleanup(path)
+    print("Done!")
 
 
 def cleanup(path):
@@ -25,7 +26,6 @@ def cleanup(path):
             except Exception as error:
                 print(error)
                 continue
-    print("Done!")
 
 
 def get_date(filename):
