@@ -13,7 +13,7 @@ def main():
 
 def cleanup(path):
     for filename in os.listdir(path):
-        file = path + "/" + filename
+        file = os.path.join(path, filename)
         if os.path.isfile(file):
             backup_date = get_date(filename)
             last_month_day = calendar.monthrange(backup_date.year, backup_date.month)[1]
