@@ -1,7 +1,7 @@
 import calendar
+import datetime
 import os
 import sys
-import datetime
 
 
 def main():
@@ -29,9 +29,11 @@ def cleanup(path):
 
 
 def get_date(filename):
-    part1 = filename[filename.index("_") + 1:]
-    part2 = part1[:part1.index(".")]
-    return datetime.datetime.strptime(part2, "%d_%m_%Y").date()
+    stem = os.path.splitext(os.path.basename(filename))[0]
+    parts = stem.split("_")
+    datestring = "_".join(parts[-3:])
+
+    return datetime.datetime.strptime(datestring, "%d_%m_%Y").date()
 
 
 if __name__ == "__main__":
